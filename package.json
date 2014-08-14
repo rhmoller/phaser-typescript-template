@@ -1,6 +1,14 @@
 {
-  "name": "phaser-ts",
+  "name": "phaser-typescript-template",
   "version": "0.0.1",
+  "description": "A template for writing games with typescript and phaser",
+  "keywords": ["phaser, typescript, gulp, gamedev"],
+  "author": "Rene Hangstrup Moeller",
+  "license": "MIT",
+  "repository" :
+    { "type" : "git",
+      "url" : "https://github.com/rhmoller/phaser-typescript-template.git"
+    },
 
   "devDependencies": {
     "gulp": "~3.8.7",
