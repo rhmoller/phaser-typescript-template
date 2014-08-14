@@ -1,5 +1,5 @@
 /// <reference path="../lib/phaser.d.ts" />
-/// <reference path="./hello.ts" />
+/// <reference path="hello.ts" />
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, "phaser-example", {
     preload: preload,
@@ -9,7 +9,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, "phaser-example", {
 
 function preload() {
     game.load.image("osaa", "OSAA_LOGO.png");
-    var hello = new hello.Greeter().hello();
+    var msg = new hello.Greeter().hello();
 }
 
 var sprite;

@@ -6,19 +6,19 @@ var tsc = require("gulp-tsc");
 gulp.task("webserver", function () {
     connect.server({
         livereload: true,
-        root: ["dist"]
+        root: ["build"]
     });
 });
 
 gulp.task("livereload", function () {
-    gulp.src(["dist/*.js", "root/**/*.*"])
+    gulp.src(["build/*.js", "root/**/*.*"])
         .pipe(watch())
         .pipe(connect.reload());
 });
 
 gulp.task("root", function () {
-    gulp.src(["root/**/*"], { base: 'root'}).pipe(gulp.dest("dist"));
-    gulp.src(["lib/**/*"], { base: 'lib'}).pipe(gulp.dest("dist"));
+    gulp.src(["root/**/*"], { base: 'root'}).pipe(gulp.dest("build"));
+    gulp.src(["lib/**/*"], { base: 'lib'}).pipe(gulp.dest("build"));
 });
 
 gulp.task("compile", function () {
@@ -26,7 +26,7 @@ gulp.task("compile", function () {
         .pipe(tsc({
             out: "game.js"
         }))
-        .pipe(gulp.dest("dist"));
+        .pipe(gulp.dest("build"));
 });
 
 gulp.task("watch", function () {
