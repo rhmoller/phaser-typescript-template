@@ -2,11 +2,12 @@ var gulp = require("gulp");
 var connect = require("gulp-connect");
 var watch = require("gulp-watch");
 var tsc = require("gulp-tsc");
+var notify = require("gulp-notify");
 
 gulp.task("webserver", function () {
     connect.server({
-        livereload: true,
-        root: ["build"]
+        root: ["build"],
+        livereload: true
     });
 });
 
@@ -22,10 +23,12 @@ gulp.task("root", function () {
 });
 
 gulp.task("compile", function () {
-    return gulp.src("src/**/*.ts")
+    return gulp.src(["src/Main.ts"])
         .pipe(tsc({
-            out: "game.js"
+            out: "game.js",
+            emitError: true
         }))
+        .on("error", notify.onError({ message: "Error: <%= error.message %>", title: "Typescript Error"}))
         .pipe(gulp.dest("build"));
 });
 
